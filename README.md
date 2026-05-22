@@ -246,19 +246,17 @@ Raw data files are not committed to the repository because of file size constrai
 
 ```text
 CommercePulse/
-├── data/
-│   ├── raw/                         # Local raw CSV files, ignored by Git
-│   ├── interim/                     # Cleaned Parquet event files, ignored by Git
-│   └── processed/                   # DuckDB warehouse, ignored by Git
-├── dashboards/
-│   ├── data/                        # CSV exports for Power BI
-│   ├── docs/                        # Power BI data dictionary and build guide
-│   ├── screenshots/                 # Dashboard screenshots
-│   └── CommercePulse_Product_Analytics.pbix
-├── docs/
-│   ├── project_summary.md
-│   ├── dashboard_walkthrough.md
-│   └── data_dictionary.md
+├── README.md
+├── requirements.txt
+├── .gitignore
+├── src/
+│   ├── data/
+│   ├── warehouse/
+│   └── analytics/
+│       └── export_powerbi_datasets.py
+├── sql/
+│   ├── staging/
+│   └── marts/
 ├── reports/
 │   ├── monthly_growth_summary.md
 │   ├── category_growth_diagnostics.md
@@ -267,15 +265,14 @@ CommercePulse/
 │   ├── smartphone_price_band_diagnostics.md
 │   ├── smartphone_brand_price_band_diagnostics.md
 │   └── final_business_insights.md
-├── sql/
-│   ├── staging/
-│   └── marts/
-├── src/
-│   ├── analytics/
-│   ├── data/
-│   └── warehouse/
-├── README.md
-└── .gitignore
+├── docs/
+│   ├── project_summary.md
+│   ├── dashboard_walkthrough.md
+│   └── data_dictionary.md
+└── dashboards/
+    ├── data/
+    ├── screenshots/
+    └── CommercePulse_Product_Analytics_Dashboard.pdf
 ```
 
 ---
@@ -454,35 +451,3 @@ Positive growth shares can sum to more than 100% when some segments have negativ
 Rows with missing metadata are retained as `unknown` rather than dropped to preserve transparency and avoid hiding financially material uncategorized activity.
 
 ---
-
-## Business Recommendation
-
-The business should prioritize deeper investigation into high-value smartphone segments, especially:
-
-1. Apple premium tiers
-2. Samsung value-tier growth
-3. Samsung mid-range underperformance
-4. Cart abandonment behavior in premium smartphone sessions
-
-The next analytical step would be to investigate user cohorts, product-level behavior, promotion windows, inventory availability, and checkout friction for these specific segments.
-
----
-
-## Portfolio Value
-
-This project demonstrates:
-
-- Large-scale behavioral analytics over 100M+ rows
-- Analytics engineering using DuckDB and SQL marts
-- Product funnel diagnostics
-- Month-over-month KPI analysis
-- Category, brand, and price-band segmentation
-- Executive dashboarding in Power BI
-- Business storytelling from raw event data
-- Reproducible data pipeline design
-
----
-
-## Resume-Ready Bullet
-
-Built CommercePulse, a 109M+ event e-commerce analytics pipeline using DuckDB, SQL, Python, and Power BI to diagnose revenue growth, funnel deterioration, and smartphone segment performance across category, brand, and price-band dimensions.
