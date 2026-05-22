@@ -1,0 +1,41 @@
+# Virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment files
+.env
+
+# Raw / large local datasets
+data/raw/*
+!data/raw/.gitkeep
+
+# Intermediate and processed outputs
+data/interim/*
+!data/interim/.gitkeep
+
+data/processed/*
+!data/processed/.gitkeep
+
+outputs/tables/*
+!outputs/tables/.gitkeep
+
+outputs/figures/*
+!outputs/figures/.gitkeep
+
+outputs/model_metrics/*
+!outputs/model_metrics/.gitkeep
+
+# Dashboard artifacts
+*.pbix
+
+# OS files
+.DS_Store
+Thumbs.db
